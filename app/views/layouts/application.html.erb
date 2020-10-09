@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+      <title>
+        E-Learning System
+        <% if content_for?(:page_title) %>
+          | <%= yield :page_title %>
+        <% end %>
+      </title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <%= javascript_tag do %>
+      I18n.locale = "<%= I18n.locale %>";
+      I18n.translations = <%= raw I18n::JS.filtered_translations.to_json %>;;
+    <% end %>
+  </head>
+
+  <body class="app">
+    <%= yield %>
+  </body>
+</html>

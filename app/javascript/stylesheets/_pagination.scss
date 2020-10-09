@@ -1,0 +1,36 @@
+.paginate {
+  &__container {
+    color: $downhill-violet;
+    font-size: 12px;
+    font-weight: 500;
+    list-style: none;
+  }
+  &__list {
+    cursor: pointer;
+    display: inline-block;
+    margin: 5px;
+    &--active {
+      background: $evangelical-ivory;
+      border-radius: 5px;
+      color: $merciless-bronze;
+      padding: 5px 12px;
+    }
+    &--link {
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+  &__previous,
+  &__next {
+    cursor: pointer;
+    display: inline-block;
+    margin: 3px;
+
+    &--link {
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+}

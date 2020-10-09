@@ -1,0 +1,42 @@
+{
+  "env": {
+    "browser": true,
+    "jest": true,
+    "es6": true
+  },
+  "parser": "babel-eslint",
+  "extends": ["airbnb", "prettier", "prettier/react"],
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly",
+    "$": "readonly",
+    "jQuery": "readonly",
+    "describe": "readonly",
+    "expect": "readonly",
+    "jest": "readonly",
+    "test": "readonly",
+    "I18n": "readonly",
+    "location": "readonly"
+  },
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "plugins": ["react"],
+  "rules": {
+    "no-shadow": 0,
+    "no-underscore-dangle": ["error", { "allow": ["__html"] }],
+    "prefer-destructuring": 0,
+    "camelcase": "warn",
+    "react/jsx-boolean-value": [1, "always"],
+    "react/no-array-index-key": "warn",
+    "react/state-in-constructor": "warn",
+    "react/destructuring-assignment": 0,
+    "react/jsx-props-no-spreading": 0,
+    "jsx-a11y/click-events-have-key-events": 0,
+    "import/extensions": "warn"
+  }
+}

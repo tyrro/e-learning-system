@@ -1,0 +1,3 @@
+manufacturer, model, year, producing_country
+'BMW', 'J7', 2020, Germany
+'Tata', 'nano', 2010, India
