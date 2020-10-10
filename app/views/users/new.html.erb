@@ -1,13 +1,12 @@
-<div class="clearance">
-  <div class="sign-up">
-  <h2><%= t(".title") %></h2>
-
+<div class="container">
+  <div class="form-group text-left">
+    <h2><%= t(".title") %></h2>
+  </div>
   <%= form_for @user do |form| %>
     <%= render partial: '/users/form', object: form %>
 
-    <div class="submit-field">
+    <div class="form-group">
       <%= form.submit %>
     </div>
   <% end %>
-  </div>
 </div>
