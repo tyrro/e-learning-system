@@ -1,0 +1,16 @@
+<nav class="navbar navbar-light bg-light justify-content-between">
+  <%= link_to 'E-Learning', root_path, class: 'navbar-brand' %>
+    <% if signed_in? %>
+    <%= current_user.email %>
+    <%= button_to "Sign out", sign_out_path, method: :delete, class: "btn btn-secondary" %>
+  <% else %>
+    <%= button_to "Sign In", sign_in_path, method: :get, class: "btn btn-secondary" %>
+    <%= button_to "Sign Up", sign_up_path, method: :get, class: "btn btn-secondary" %>
+  <% end %>
+</nav>
+
+<% flash.each do |key, value| %>
+  <div class="alert alert-warning alert-<%= key %>">
+    <%= value %>
+  </div>
+<% end %>
