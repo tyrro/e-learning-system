@@ -9,10 +9,10 @@ function url(template, params) {
 }
 
 const routes = {
-  cars: {
-    index: params => url('/cars{.format}{?q,page}', params),
-    update: params => url('/cars/{carId}{.format}', params),
-    destroy: params => url('/cars/{carId}{.format}', params),
+  courses: {
+    index: params => url('/courses{.format}{?page}', params),
+    update: params => url('/courses/{carId}{.format}', params),
+    destroy: params => url('/courses/{carId}{.format}', params),
   },
 };
 
