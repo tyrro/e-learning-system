@@ -4,6 +4,7 @@
 // that code so it'll be compiled.
 
 import WebpackerReact from 'webpacker-react';
+import 'bootstrap';
 import '../shared/i18n-js';
 
 import '../stylesheets/index.scss';
