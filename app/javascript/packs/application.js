@@ -10,5 +10,6 @@ import '../shared/i18n-js';
 import '../stylesheets/index.scss';
 
 import CourseList from '../components/Course/List';
+import LessonList from '../components/Lesson/List';
 
-WebpackerReact.setup({ CourseList });
+WebpackerReact.setup({ CourseList, LessonList });

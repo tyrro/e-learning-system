@@ -1,61 +1,63 @@
 import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 
 import httpClient from '../../shared/httpClient';
 import routes from '../../routes';
 
 import Pagination from '../Pagination';
 
-const CourseList = () => {
-  const [courses, setCourses] = useState([]);
+const LessonList = ({ courseId }) => {
+  const [lessons, setLessons] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const forcePage = currentPage - 1;
 
-  const fetchCourses = async page => {
+  const fetchLessons = async page => {
     const { data } = await httpClient.get(
-      routes.courses.index({
+      routes.lessons.index({
+        courseId,
         page,
       }),
     );
-    setCourses(data.courses);
+    setLessons(data.lessons);
     setCurrentPage(data.pagination.currentPage);
     setTotalPages(data.pagination.totalPages);
   };
 
   const onPageChange = selectedPage => {
     setCurrentPage(selectedPage);
-    fetchCourses(selectedPage);
+    fetchLessons(selectedPage);
   };
 
-  const onCourseDelete = async courseId => {
+  const onLessonDelete = async lessonId => {
     // eslint-disable-next-line no-alert
-    if (window.confirm('Are you sure to delete this course')) {
-      await httpClient.delete(routes.courses.destroy({ courseId }));
-      fetchCourses(currentPage);
+    if (window.confirm('Are you sure to delete this lesson')) {
+      await httpClient.delete(routes.lessons.destroy({ lessonId }));
+      fetchLessons(currentPage);
     }
   };
 
   useEffect(() => {
-    fetchCourses();
+    fetchLessons();
   }, []);
 
   return (
-    <div className="course-list">
-      <div className="course-list__pagination text-right align-center">
+    <div className="lesson-list">
+      <div className="lesson-list__pagination text-right align-center">
         <Pagination
           pageCount={totalPages}
           forcePage={forcePage}
           onPageChange={page => onPageChange(page.selected + 1)}
         />
       </div>
-      <div className="course-list__contents row">
-        {courses.map(course => (
+      <div className="lesson-list__contents row">
+        {lessons.map(lesson => (
           <div className="col-sm-6">
             <div className="card bg-light">
               <div className="card-body">
-                <h5 className="card-title">{course.name}</h5>
-                <p className="card-text">{course.description}</p>
-                <a href={course.lessonsPath} className="btn btn-primary">
+                <h5 className="card-title">{lesson.name}</h5>
+                <p className="card-text">{lesson.description}</p>
+                <a href={lesson.lessonsPath} className="btn btn-primary">
                   Go to Lessons
                 </a>
               </div>
@@ -63,7 +65,7 @@ const CourseList = () => {
           </div>
         ))}
       </div>
-      <div className="course-list__pagination text-right">
+      <div className="lesson-list__pagination text-right">
         <Pagination
           pageCount={totalPages}
           forcePage={forcePage}
@@ -74,4 +76,8 @@ const CourseList = () => {
   );
 };
 
-export default CourseList;
+export default LessonList;
+
+LessonList.propTypes = {
+  courseId: PropTypes.number.isRequired,
+};

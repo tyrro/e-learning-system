@@ -14,6 +14,9 @@ const routes = {
     update: params => url('/courses/{carId}{.format}', params),
     destroy: params => url('/courses/{carId}{.format}', params),
   },
+  lessons: {
+    index: params => url('/courses/{courseId}/lessons{.format}{?page}', params),
+  },
 };
 
 export default routes;
