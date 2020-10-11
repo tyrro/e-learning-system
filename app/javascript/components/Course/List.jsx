@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import httpClient from '../../shared/httpClient';
 import routes from '../../routes';
 
+import Breadcrumb from '../Breadcrumb';
 import Pagination from '../Pagination';
 
 const CourseList = () => {
@@ -41,6 +42,9 @@ const CourseList = () => {
 
   return (
     <div className="course-list">
+      <div className="course-list__breadcrumb">
+        <Breadcrumb currentPath="courses" />
+      </div>
       <div className="course-list__pagination text-right align-center">
         <Pagination
           pageCount={totalPages}
@@ -50,7 +54,7 @@ const CourseList = () => {
       </div>
       <div className="course-list__contents row">
         {courses.map(course => (
-          <div className="col-sm-6">
+          <div className="col-sm-6" key={course.lessonsPath}>
             <div className="card bg-light">
               <div className="card-body">
                 <h5 className="card-title">{course.name}</h5>

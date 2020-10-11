@@ -4,12 +4,15 @@ import PropTypes from 'prop-types';
 import httpClient from '../../shared/httpClient';
 import routes from '../../routes';
 
+import Breadcrumb from '../Breadcrumb';
 import Pagination from '../Pagination';
 
 const LessonList = ({ courseId }) => {
   const [lessons, setLessons] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
+  const [prevPaths, setPrevPaths] = useState([]);
+
   const forcePage = currentPage - 1;
 
   const fetchLessons = async page => {
@@ -22,6 +25,7 @@ const LessonList = ({ courseId }) => {
     setLessons(data.lessons);
     setCurrentPage(data.pagination.currentPage);
     setTotalPages(data.pagination.totalPages);
+    setPrevPaths(Object.values(data.prevPaths));
   };
 
   const onPageChange = selectedPage => {
@@ -43,6 +47,9 @@ const LessonList = ({ courseId }) => {
 
   return (
     <div className="lesson-list">
+      <div className="lesson-list__breadcrumb">
+        <Breadcrumb prevPaths={prevPaths} currentPath="lessons" />
+      </div>
       <div className="lesson-list__pagination text-right align-center">
         <Pagination
           pageCount={totalPages}
@@ -52,12 +59,12 @@ const LessonList = ({ courseId }) => {
       </div>
       <div className="lesson-list__contents row">
         {lessons.map(lesson => (
-          <div className="col-sm-6">
+          <div className="col-sm-6" key={lesson.questionsPath}>
             <div className="card bg-light">
               <div className="card-body">
                 <h5 className="card-title">{lesson.name}</h5>
                 <p className="card-text">{lesson.description}</p>
-                <a href={lesson.lessonsPath} className="btn btn-primary">
+                <a href={lesson.questionsPath} className="btn btn-primary">
                   Go to Lessons
                 </a>
               </div>
