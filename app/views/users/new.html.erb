@@ -1,12 +1,14 @@
-<div class="container">
-  <div class="form-group text-left">
-    <h2><%= t(".title") %></h2>
-  </div>
-  <%= form_for @user do |form| %>
-    <%= render partial: '/users/form', object: form %>
-
-    <div class="form-group">
-      <%= form.submit %>
+<div class="row">
+  <div class="w-50 mx-auto">
+    <div class="form-group text-left">
+      <h2><%= t(".title") %></h2>
     </div>
-  <% end %>
+    <%= form_for @user do |form| %>
+      <%= render partial: '/users/form', object: form %>
+
+      <div class="form-group">
+        <%= form.submit %>
+      </div>
+    <% end %>
+  </div>
 </div>
