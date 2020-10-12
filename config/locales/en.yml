@@ -3,9 +3,9 @@
 # than English, add the necessary files in this directory.
 
 en:
-  destroyed: '%{resource} has been removed'
+  action:
+    destroyed: '%{resource} has been removed'
   attributes:
-    manufacturer: Manufacturer
-    model: Model
-    year: Year
-    producingCountry: Producing Country
+    course:
+      name: Name
+      description: Description

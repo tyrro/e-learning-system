@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 
 import httpClient from '../../shared/httpClient';
 import routes from '../../routes';
 
+import CourseModal from './Modal';
 import Breadcrumb from '../Breadcrumb';
 import Pagination from '../Pagination';
 
-const CourseList = () => {
+const CourseList = ({ isAdmin }) => {
   const [courses, setCourses] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
+
   const forcePage = currentPage - 1;
 
   const fetchCourses = async page => {
@@ -43,7 +46,9 @@ const CourseList = () => {
   return (
     <div className="course-list">
       <div className="course-list__breadcrumb">
-        <Breadcrumb currentPath="courses" />
+        <Breadcrumb currentPath="courses">
+          {isAdmin && <CourseModal actionName="create" fetchCourses={fetchCourses} />}
+        </Breadcrumb>
       </div>
       <div className="course-list__pagination text-right align-center">
         <Pagination
@@ -57,11 +62,31 @@ const CourseList = () => {
           <div className="col-sm-6" key={course.lessonsPath}>
             <div className="card bg-light">
               <div className="card-body">
+                {isAdmin && (
+                  <button
+                    type="button"
+                    className="close"
+                    aria-label="Close"
+                    onClick={() => onCourseDelete(course.id)}
+                  >
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                )}
+
                 <h5 className="card-title">{course.name}</h5>
                 <p className="card-text">{course.description}</p>
-                <a href={course.lessonsPath} className="btn btn-primary">
-                  Go to Lessons
-                </a>
+                <div className="course-list__content-links d-flex">
+                  <a href={course.lessonsPath} className="btn btn-sm btn-primary mr-2">
+                    Go to Lessons
+                  </a>
+                  {isAdmin && (
+                    <CourseModal
+                      actionName="update"
+                      initialCourseAttributes={course}
+                      fetchCourses={fetchCourses}
+                    />
+                  )}
+                </div>
               </div>
             </div>
           </div>
@@ -76,6 +101,10 @@ const CourseList = () => {
       </div>
     </div>
   );
+};
+
+CourseList.propTypes = {
+  isAdmin: PropTypes.bool.isRequired,
 };
 
 export default CourseList;

@@ -7,14 +7,14 @@
         <%= current_user.email %>
       </li>
       <li class="nav-link">
-        <%= button_to "Sign out", sign_out_path, method: :delete, class: "btn btn-secondary" %>
+        <%= button_to "Sign out", sign_out_path, method: :delete, class: "btn btn-sm btn-secondary" %>
       </li>
     <% else %>
       <li class="nav-link">
-          <%= button_to "Sign In", sign_in_path, method: :get, class: "btn btn-secondary" %>
+          <%= button_to "Sign In", sign_in_path, method: :get, class: "btn btn-sm btn-primary" %>
       </li>
       <li class="nav-link">
-        <%= button_to "Sign Up", sign_up_path, method: :get, class: "btn btn-secondary" %>
+        <%= button_to "Sign Up", sign_up_path, method: :get, class: "btn btn-sm btn-success" %>
       </li>
     <% end %>
   </ul>

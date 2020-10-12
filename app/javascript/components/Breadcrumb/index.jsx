@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Breadcrumb = ({ prevPaths, currentPath }) => {
+const Breadcrumb = ({ prevPaths, currentPath, children }) => {
   return (
     <nav aria-label="breadcrumb">
       <ol className="breadcrumb">
@@ -10,9 +10,10 @@ const Breadcrumb = ({ prevPaths, currentPath }) => {
             <a href={path.path}>{path.name}</a>
           </li>
         ))}
-        <li className="breadcrumb-item active text-capitalize" aria-current="page">
+        <li className="breadcrumb-item active text-capitalize mr-5" aria-current="page">
           {currentPath}
         </li>
+        {children}
       </ol>
     </nav>
   );
@@ -20,6 +21,7 @@ const Breadcrumb = ({ prevPaths, currentPath }) => {
 
 Breadcrumb.defaultProps = {
   prevPaths: [],
+  children: null,
 };
 
 Breadcrumb.propTypes = {
@@ -30,6 +32,7 @@ Breadcrumb.propTypes = {
     }),
   ),
   currentPath: PropTypes.string.isRequired,
+  children: PropTypes.node,
 };
 
 export default Breadcrumb;
