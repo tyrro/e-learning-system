@@ -2,6 +2,7 @@ AllCops:
   Exclude:
     - 'vendor/**/*'
     - 'db/schema.rb'
+    - 'db/seeds.rb'
   UseCache: false
   TargetRubyVersion: 2.6
   NewCops: enable

@@ -6,10 +6,7 @@ json.lessons @lessons do |lesson|
 end
 
 json.prev_paths do
-  json.courses do
-    json.path courses_path
-    json.name 'courses'
-  end
+  json.child! { json.partial! 'paths/path', locals: { path: courses_path, name: 'courses' } }
 end
 
 json.pagination do

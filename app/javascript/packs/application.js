@@ -11,5 +11,6 @@ import '../stylesheets/index.scss';
 
 import CourseList from '../components/Course/List';
 import LessonList from '../components/Lesson/List';
+import QuestionList from '../components/Question/List';
 
-WebpackerReact.setup({ CourseList, LessonList });
+WebpackerReact.setup({ CourseList, LessonList, QuestionList });
