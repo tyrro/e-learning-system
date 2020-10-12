@@ -25,7 +25,7 @@ const LessonList = ({ courseId }) => {
     setLessons(data.lessons);
     setCurrentPage(data.pagination.currentPage);
     setTotalPages(data.pagination.totalPages);
-    setPrevPaths(Object.values(data.prevPaths));
+    setPrevPaths(data.prevPaths);
   };
 
   const onPageChange = selectedPage => {
@@ -65,7 +65,7 @@ const LessonList = ({ courseId }) => {
                 <h5 className="card-title">{lesson.name}</h5>
                 <p className="card-text">{lesson.description}</p>
                 <a href={lesson.questionsPath} className="btn btn-primary">
-                  Go to Lessons
+                  Take the Quiz
                 </a>
               </div>
             </div>
