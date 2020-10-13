@@ -9,3 +9,6 @@ en:
     course:
       name: Name
       description: Description
+    lesson:
+      name: Name
+      description: Description

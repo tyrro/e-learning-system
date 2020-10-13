@@ -1,7 +1,7 @@
 class CoursesController < ApplicationController
   include ValidationMessages
 
-  before_action :set_course, only: %i(update destroy)
+  before_action :find_course, only: %i(update destroy)
 
   def index
     @courses = Course.all
@@ -32,7 +32,7 @@ class CoursesController < ApplicationController
     render json: { message: t('action.destroyed', resource: @course.model_name.human) }
   end
 
-  def set_course
+  def find_course
     @course = Course.find(params[:id])
   end
 

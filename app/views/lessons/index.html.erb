@@ -1,2 +1,2 @@
 <% content_for :page_title, 'Lesson List' %>
-<%= react_component 'LessonList', courseId: @course.id %>
+<%= react_component 'LessonList', isUserAdmin: current_user.admin?, courseId: @course.id %>

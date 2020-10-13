@@ -8319,6 +8319,11 @@ react-paginate@^6.5.0:
   dependencies:
     prop-types "^15.6.1"
 
+react-required-if@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/react-required-if/-/react-required-if-1.0.3.tgz#6a40a761b1d54815c1d4e6610910cbf92b5aa987"
+  integrity sha1-akCnYbHVSBXB1OZhCRDL+StaqYc=
+
 react-test-renderer@^16.0.0-0:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-test-renderer/-/react-test-renderer-16.13.1.tgz#de25ea358d9012606de51e012d9742e7f0deabc1"

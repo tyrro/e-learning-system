@@ -6,27 +6,27 @@ import requiredIf from 'react-required-if';
 import httpClient from '../../shared/httpClient';
 import routes from '../../routes';
 
-const CourseModal = ({ actionName, initialCourseAttributes, fetchCourses }) => {
-  const courseId = initialCourseAttributes.id;
-  const [name, setName] = useState(initialCourseAttributes.name);
-  const [description, setDescription] = useState(initialCourseAttributes.description);
+const LessonModal = ({ actionName, courseId, initialLessonAttributes, fetchLessons }) => {
+  const lessonId = initialLessonAttributes.id;
+  const [name, setName] = useState(initialLessonAttributes.name);
+  const [description, setDescription] = useState(initialLessonAttributes.description);
   const [errors, setErrors] = useState({});
 
   const handleSubmitForm = async event => {
     event.preventDefault();
 
-    const courseParams = { name, description };
+    const lessonParams = { name, description };
 
     const requestRoute =
       actionName === 'update'
-        ? httpClient.put(routes.courses.update({ courseId }), courseParams)
-        : httpClient.post(routes.courses.create(), courseParams);
+        ? httpClient.put(routes.lessons.update({ lessonId }), lessonParams)
+        : httpClient.post(routes.lessons.create({ courseId }), lessonParams);
 
     try {
       const { data } = await requestRoute;
 
       if (data.error === null) {
-        fetchCourses();
+        fetchLessons();
       }
     } catch (error) {
       const response = error.response;
@@ -37,18 +37,18 @@ const CourseModal = ({ actionName, initialCourseAttributes, fetchCourses }) => {
   };
 
   return (
-    <div className="course-modal">
+    <div className="lesson-modal">
       <button
         type="button"
         className="btn btn-sm btn-primary"
         data-toggle="modal"
-        data-target={`#courseModal-${actionName}-${courseId}`}
+        data-target={`#lessonModal-${actionName}-${lessonId}`}
       >
-        {actionName === 'update' ? 'Edit Course' : 'Add New'}
+        {actionName === 'update' ? 'Edit Lesson' : 'Add New'}
       </button>
       <div
         className="modal fade"
-        id={`courseModal-${actionName}-${courseId}`}
+        id={`lessonModal-${actionName}-${lessonId}`}
         tabIndex="-1"
         role="dialog"
         aria-hidden="true"
@@ -61,8 +61,8 @@ const CourseModal = ({ actionName, initialCourseAttributes, fetchCourses }) => {
               }}
             >
               <div className="modal-header">
-                <h5 className="modal-title" id="courseModalTitle">
-                  {actionName === 'update' ? 'Edit Course' : 'Add New Course'}
+                <h5 className="modal-title" id="lessonModalTitle">
+                  {actionName === 'update' ? 'Edit Lesson' : 'Add New Lesson'}
                 </h5>
                 <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
@@ -71,7 +71,7 @@ const CourseModal = ({ actionName, initialCourseAttributes, fetchCourses }) => {
               <div className="modal-body">
                 <div className="container-fluid">
                   <div className="form-group">
-                    <label htmlFor="name">{I18n.t('attributes.course.name')}</label>
+                    <label htmlFor="name">{I18n.t('attributes.lesson.name')}</label>
                     <input
                       type="text"
                       className="form-control"
@@ -87,7 +87,7 @@ const CourseModal = ({ actionName, initialCourseAttributes, fetchCourses }) => {
                     )}
                   </div>
                   <div className="form-group">
-                    <label htmlFor="description">{I18n.t('attributes.course.description')}</label>
+                    <label htmlFor="description">{I18n.t('attributes.lesson.description')}</label>
                     <textarea
                       className="form-control"
                       id="description"
@@ -120,23 +120,25 @@ const CourseModal = ({ actionName, initialCourseAttributes, fetchCourses }) => {
   );
 };
 
-CourseModal.defaultProps = {
+LessonModal.defaultProps = {
   actionName: 'create',
-  initialCourseAttributes: {
+  courseId: null,
+  initialLessonAttributes: {
     id: null,
     name: '',
     description: '',
   },
 };
 
-CourseModal.propTypes = {
+LessonModal.propTypes = {
   actionName: PropTypes.oneOf(['create', 'update']),
-  initialCourseAttributes: PropTypes.shape({
+  courseId: requiredIf(PropTypes.number, props => props.actionName === 'create'),
+  initialLessonAttributes: PropTypes.shape({
     id: requiredIf(PropTypes.number, props => props.actionName === 'update'),
     name: PropTypes.string,
     description: PropTypes.string,
   }),
-  fetchCourses: PropTypes.func.isRequired,
+  fetchLessons: PropTypes.func.isRequired,
 };
 
-export default CourseModal;
+export default LessonModal;

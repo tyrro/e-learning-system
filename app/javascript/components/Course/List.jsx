@@ -8,7 +8,7 @@ import CourseModal from './Modal';
 import Breadcrumb from '../Breadcrumb';
 import Pagination from '../Pagination';
 
-const CourseList = ({ isAdmin }) => {
+const CourseList = ({ isUserAdmin }) => {
   const [courses, setCourses] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
@@ -47,7 +47,7 @@ const CourseList = ({ isAdmin }) => {
     <div className="course-list">
       <div className="course-list__breadcrumb">
         <Breadcrumb currentPath="courses">
-          {isAdmin && <CourseModal actionName="create" fetchCourses={fetchCourses} />}
+          {isUserAdmin && <CourseModal actionName="create" fetchCourses={fetchCourses} />}
         </Breadcrumb>
       </div>
       <div className="course-list__pagination text-right align-center">
@@ -62,7 +62,7 @@ const CourseList = ({ isAdmin }) => {
           <div className="col-sm-6" key={course.lessonsPath}>
             <div className="card bg-light">
               <div className="card-body">
-                {isAdmin && (
+                {isUserAdmin && (
                   <button
                     type="button"
                     className="close"
@@ -79,7 +79,7 @@ const CourseList = ({ isAdmin }) => {
                   <a href={course.lessonsPath} className="btn btn-sm btn-primary mr-2">
                     Go to Lessons
                   </a>
-                  {isAdmin && (
+                  {isUserAdmin && (
                     <CourseModal
                       actionName="update"
                       initialCourseAttributes={course}
@@ -104,7 +104,7 @@ const CourseList = ({ isAdmin }) => {
 };
 
 CourseList.propTypes = {
-  isAdmin: PropTypes.bool.isRequired,
+  isUserAdmin: PropTypes.bool.isRequired,
 };
 
 export default CourseList;
