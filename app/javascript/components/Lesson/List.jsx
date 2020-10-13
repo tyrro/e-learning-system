@@ -12,7 +12,7 @@ const LessonList = ({ isUserAdmin, courseId }) => {
   const [lessons, setLessons] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
-  const [prevPaths, setPrevPaths] = useState([]);
+  const [breadcrumbs, setBreadcrumbs] = useState([]);
 
   const forcePage = currentPage - 1;
 
@@ -26,7 +26,7 @@ const LessonList = ({ isUserAdmin, courseId }) => {
     setLessons(data.lessons);
     setCurrentPage(data.pagination.currentPage);
     setTotalPages(data.pagination.totalPages);
-    setPrevPaths(data.prevPaths);
+    setBreadcrumbs(data.breadcrumbs);
   };
 
   const onPageChange = selectedPage => {
@@ -49,7 +49,7 @@ const LessonList = ({ isUserAdmin, courseId }) => {
   return (
     <div className="lesson-list">
       <div className="lesson-list__breadcrumb">
-        <Breadcrumb prevPaths={prevPaths} currentPath="lessons">
+        <Breadcrumb breadcrumbs={breadcrumbs} currentPath="lessons">
           {isUserAdmin && (
             <LessonModal actionName="create" courseId={courseId} fetchLessons={fetchLessons} />
           )}

@@ -12,7 +12,7 @@ const QuestionList = ({ lessonId }) => {
   const [questions, setQuestions] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
-  const [prevPaths, setPrevPaths] = useState([]);
+  const [breadcrumbs, setBreadcrumbs] = useState([]);
 
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [userChosenOptions, setUserChosenOptions] = useState([]);
@@ -29,7 +29,7 @@ const QuestionList = ({ lessonId }) => {
     setQuestions(data.questions);
     setCurrentPage(data.pagination.currentPage);
     setTotalPages(data.pagination.totalPages);
-    setPrevPaths(data.prevPaths);
+    setBreadcrumbs(data.breadcrumbs);
   };
 
   const findCorrectAnswer = question => question.answers.find(answer => answer.correct);
@@ -73,7 +73,7 @@ const QuestionList = ({ lessonId }) => {
   return (
     <div className="question-list">
       <div className="question-list__breadcrumb">
-        <Breadcrumb prevPaths={prevPaths} currentPath="questions" />
+        <Breadcrumb breadcrumbs={breadcrumbs} currentPath="questions" />
       </div>
       <div className="question-list__pagination text-right align-center">
         <Pagination

@@ -72,7 +72,6 @@ const CourseList = ({ isUserAdmin }) => {
                     <span aria-hidden="true">&times;</span>
                   </button>
                 )}
-
                 <h5 className="card-title">{course.name}</h5>
                 <p className="card-text">{course.description}</p>
                 <div className="course-list__content-links d-flex">
