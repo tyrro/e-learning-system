@@ -8,9 +8,12 @@ json.questions @questions do |question|
   end
 end
 
-json.prev_paths do
-  json.child! { json.partial! 'paths/path', locals: { path: courses_path, name: 'courses' } }
-  json.child! { json.partial! 'paths/path', locals: { path: course_lessons_path(@lesson.course), name: 'lessons' }}
+json.breadcrumbs do
+  json.child! { json.partial! 'breadcrumbs/breadcrumb', locals: { path: courses_path, label: 'courses' } }
+  json.child! do
+    json.partial! 'breadcrumbs/breadcrumb', locals: { path: course_lessons_path(@lesson.course),
+                                                      label: 'lessons', }
+  end
 end
 
 json.pagination do

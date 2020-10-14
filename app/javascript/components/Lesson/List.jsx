@@ -4,14 +4,15 @@ import PropTypes from 'prop-types';
 import httpClient from '../../shared/httpClient';
 import routes from '../../routes';
 
+import LessonModal from './Modal';
 import Breadcrumb from '../Breadcrumb';
 import Pagination from '../Pagination';
 
-const LessonList = ({ courseId }) => {
+const LessonList = ({ isUserAdmin, courseId }) => {
   const [lessons, setLessons] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
-  const [prevPaths, setPrevPaths] = useState([]);
+  const [breadcrumbs, setBreadcrumbs] = useState([]);
 
   const forcePage = currentPage - 1;
 
@@ -25,7 +26,7 @@ const LessonList = ({ courseId }) => {
     setLessons(data.lessons);
     setCurrentPage(data.pagination.currentPage);
     setTotalPages(data.pagination.totalPages);
-    setPrevPaths(data.prevPaths);
+    setBreadcrumbs(data.breadcrumbs);
   };
 
   const onPageChange = selectedPage => {
@@ -48,7 +49,11 @@ const LessonList = ({ courseId }) => {
   return (
     <div className="lesson-list">
       <div className="lesson-list__breadcrumb">
-        <Breadcrumb prevPaths={prevPaths} currentPath="lessons" />
+        <Breadcrumb breadcrumbs={breadcrumbs} currentPath="lessons">
+          {isUserAdmin && (
+            <LessonModal actionName="create" courseId={courseId} fetchLessons={fetchLessons} />
+          )}
+        </Breadcrumb>
       </div>
       <div className="lesson-list__pagination text-right align-center">
         <Pagination
@@ -62,11 +67,30 @@ const LessonList = ({ courseId }) => {
           <div className="col-sm-6" key={lesson.questionsPath}>
             <div className="card bg-light">
               <div className="card-body">
+                {isUserAdmin && (
+                  <button
+                    type="button"
+                    className="close"
+                    aria-label="Close"
+                    onClick={() => onLessonDelete(lesson.id)}
+                  >
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                )}
                 <h5 className="card-title">{lesson.name}</h5>
                 <p className="card-text">{lesson.description}</p>
-                <a href={lesson.questionsPath} className="btn btn-primary">
-                  Take the Quiz
-                </a>
+                <div className="lesson-list__content-links d-flex">
+                  <a href={lesson.questionsPath} className="btn btn-sm btn-primary mr-2">
+                    Take the Quiz
+                  </a>
+                  {isUserAdmin && (
+                    <LessonModal
+                      actionName="update"
+                      initialLessonAttributes={lesson}
+                      fetchLessons={fetchLessons}
+                    />
+                  )}
+                </div>
               </div>
             </div>
           </div>
@@ -86,5 +110,6 @@ const LessonList = ({ courseId }) => {
 export default LessonList;
 
 LessonList.propTypes = {
+  isUserAdmin: PropTypes.bool.isRequired,
   courseId: PropTypes.number.isRequired,
 };

@@ -16,26 +16,26 @@ ActiveRecord::Schema.define(version: 2020_10_11_214400) do
   enable_extension "plpgsql"
 
   create_table "answers", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.boolean "correct", default: false, null: false
     t.bigint "question_id", null: false
     t.index ["question_id"], name: "index_answers_on_question_id"
   end
 
   create_table "courses", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.text "description"
   end
 
   create_table "lessons", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.text "description"
     t.bigint "course_id", null: false
     t.index ["course_id"], name: "index_lessons_on_course_id"
   end
 
   create_table "questions", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.bigint "lesson_id", null: false
     t.index ["lesson_id"], name: "index_questions_on_lesson_id"
   end
