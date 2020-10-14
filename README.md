@@ -1,6 +1,6 @@
 # E Learning System
 
-//TODO Description
+This is a sample app where an user can login and take courses right away. User can take part in quizzes and can get results promptly. Course content can only be managed by an admin.
 
 The backend of this project is developed in Rails and the Frontend part in React. To run this project in
 the local machine, we have to install both `Rails` and `Node`.
@@ -63,9 +63,7 @@ the local machine, we have to install both `Rails` and `Node`.
 - Database initialization
 
   ```bash
-  rails db:create
-  rails db:schema:load
-  rails db:seed
+  rails db:prepare
   ```
 
 - Foreman installation
@@ -75,6 +73,17 @@ the local machine, we have to install both `Rails` and `Node`.
   ```
 
 - Server Start
+
   ```bash
   foreman s
+  ```
+
+  **Managing Content**
+
+  After setting up the project and signing up, a user has to become an admin to manage courses. For an user to become admin:
+
+  ```bash
+    rails c
+    User.first.update admin: true              // make the first user in the DB admin
+    User.find(user_id).update admin: true      // make the user with id: user_id in the DB admin
   ```

@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import requiredIf from 'react-required-if';
 
@@ -27,17 +27,6 @@ const QuestionModal = ({ actionName, lessonId, initialQuestionAttributes, fetchQ
     setUpInitialAnswers(initialQuestionAttributes.answers, actionName),
   );
   const [errors, setErrors] = useState({});
-  const isInitialMount = useRef(true);
-
-  useEffect(() => {
-    if (isInitialMount.current) {
-      isInitialMount.current = false;
-    }
-
-    if (actionName === 'update' && !Object.keys(errors).length) {
-      setAnswers(setUpInitialAnswers(initialQuestionAttributes.answers, actionName));
-    }
-  });
 
   const resetForm = () => {
     setName('');
@@ -62,6 +51,7 @@ const QuestionModal = ({ actionName, lessonId, initialQuestionAttributes, fetchQ
         if (actionName === 'create') {
           resetForm();
         }
+        setErrors({});
         fetchQuestions();
       }
     } catch (error) {
@@ -133,7 +123,7 @@ const QuestionModal = ({ actionName, lessonId, initialQuestionAttributes, fetchQ
               <div className="modal-body">
                 <div className="container-fluid">
                   <div className="form-group">
-                    <label htmlFor="name">{I18n.t('attributes.question.name')}</label>
+                    <label htmlFor="name">{I18n.t('activerecord.attributes.question.name')}</label>
                     <input
                       type="text"
                       className="form-control"
@@ -148,7 +138,7 @@ const QuestionModal = ({ actionName, lessonId, initialQuestionAttributes, fetchQ
                     )}
                   </div>
                   <div className="form-group">
-                    <label>{I18n.t('attributes.question.answers')}</label>
+                    <label>{I18n.t('activerecord.attributes.question.answers')}</label>
                     {answers.map((answer, index) => (
                       <div className="input-group" key={`${answer.key}-${answer.id}`}>
                         <div className="input-group-prepend">

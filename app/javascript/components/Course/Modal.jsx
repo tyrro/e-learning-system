@@ -49,7 +49,7 @@ const CourseModal = ({ actionName, initialCourseAttributes, fetchCourses }) => {
     <div className="course-modal ml-auto">
       <button
         type="button"
-        className="btn btn-sm btn-primary"
+        className="btn btn-sm btn-primary course-modal__link-text"
         data-toggle="modal"
         data-target={`#courseModal-${actionName}-${courseId}`}
       >
@@ -80,7 +80,7 @@ const CourseModal = ({ actionName, initialCourseAttributes, fetchCourses }) => {
               <div className="modal-body">
                 <div className="container-fluid">
                   <div className="form-group">
-                    <label htmlFor="name">{I18n.t('attributes.course.name')}</label>
+                    <label htmlFor="name">{I18n.t('activerecord.attributes.course.name')}</label>
                     <input
                       type="text"
                       className="form-control"
@@ -96,7 +96,9 @@ const CourseModal = ({ actionName, initialCourseAttributes, fetchCourses }) => {
                     )}
                   </div>
                   <div className="form-group">
-                    <label htmlFor="description">{I18n.t('attributes.course.description')}</label>
+                    <label htmlFor="description">
+                      {I18n.t('activerecord.attributes.course.description')}
+                    </label>
                     <textarea
                       className="form-control"
                       id="description"
