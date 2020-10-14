@@ -5,13 +5,14 @@
 en:
   action:
     destroyed: '%{resource} has been removed'
-  attributes:
-    course:
-      name: Name
-      description: Description
-    lesson:
-      name: Name
-      description: Description
-    question:
-      name: Name
-      answers: Answers
+  activerecord:
+    attributes:
+      course:
+        name: Name
+        description: Description
+      lesson:
+        name: Name
+        description: Description
+      question:
+        name: Name
+        answers: Answers
