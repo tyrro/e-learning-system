@@ -80,7 +80,7 @@ const LessonModal = ({ actionName, courseId, initialLessonAttributes, fetchLesso
               <div className="modal-body">
                 <div className="container-fluid">
                   <div className="form-group">
-                    <label htmlFor="name">{I18n.t('attributes.lesson.name')}</label>
+                    <label htmlFor="name">{I18n.t('activerecord.attributes.lesson.name')}</label>
                     <input
                       type="text"
                       className="form-control"
@@ -96,7 +96,9 @@ const LessonModal = ({ actionName, courseId, initialLessonAttributes, fetchLesso
                     )}
                   </div>
                   <div className="form-group">
-                    <label htmlFor="description">{I18n.t('attributes.lesson.description')}</label>
+                    <label htmlFor="description">
+                      {I18n.t('activerecord.attributes.lesson.description')}
+                    </label>
                     <textarea
                       className="form-control"
                       id="description"

@@ -150,7 +150,7 @@ const QuestionList = ({ isUserAdmin, lessonId }) => {
           </div>
         ))}
       </div>
-      {!formSubmitted && !questions.length && (
+      {!formSubmitted && (
         <button
           type="submit"
           className="btn btn-primary btn-sm"
@@ -159,7 +159,7 @@ const QuestionList = ({ isUserAdmin, lessonId }) => {
           Submit
         </button>
       )}
-      {formSubmitted && !questions.length && (
+      {formSubmitted && (
         <button
           type="submit"
           className="btn btn-primary btn-sm"
