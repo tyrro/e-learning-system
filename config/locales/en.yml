@@ -12,3 +12,6 @@ en:
     lesson:
       name: Name
       description: Description
+    question:
+      name: Name
+      answers: Answers

@@ -3,17 +3,17 @@
 
   <ul class="nav justify-content-end">
     <% if signed_in? %>
-      <li class="nav-link align-self-center">
+      <li class=" align-self-center mr-3">
         <%= current_user.email %>
       </li>
-      <li class="nav-link">
-        <%= button_to "Sign out", sign_out_path, method: :delete, class: "btn btn-sm btn-secondary" %>
+      <li>
+        <%= button_to "Sign Out", sign_out_path, method: :delete, class: "btn btn-sm btn-secondary" %>
       </li>
     <% else %>
-      <li class="nav-link">
+      <li class="mr-2">
           <%= button_to "Sign In", sign_in_path, method: :get, class: "btn btn-sm btn-primary" %>
       </li>
-      <li class="nav-link">
+      <li>
         <%= button_to "Sign Up", sign_up_path, method: :get, class: "btn btn-sm btn-success" %>
       </li>
     <% end %>

@@ -12,6 +12,12 @@ const LessonModal = ({ actionName, courseId, initialLessonAttributes, fetchLesso
   const [description, setDescription] = useState(initialLessonAttributes.description);
   const [errors, setErrors] = useState({});
 
+  const resetForm = () => {
+    setName('');
+    setDescription('');
+    setErrors('');
+  };
+
   const handleSubmitForm = async event => {
     event.preventDefault();
 
@@ -26,6 +32,9 @@ const LessonModal = ({ actionName, courseId, initialLessonAttributes, fetchLesso
       const { data } = await requestRoute;
 
       if (data.error === null) {
+        if (actionName === 'create') {
+          resetForm();
+        }
         fetchLessons();
       }
     } catch (error) {
@@ -37,7 +46,7 @@ const LessonModal = ({ actionName, courseId, initialLessonAttributes, fetchLesso
   };
 
   return (
-    <div className="lesson-modal">
+    <div className="lesson-modal ml-auto">
       <button
         type="button"
         className="btn btn-sm btn-primary"

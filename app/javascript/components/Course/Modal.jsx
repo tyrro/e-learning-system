@@ -12,6 +12,12 @@ const CourseModal = ({ actionName, initialCourseAttributes, fetchCourses }) => {
   const [description, setDescription] = useState(initialCourseAttributes.description);
   const [errors, setErrors] = useState({});
 
+  const resetForm = () => {
+    setName('');
+    setDescription('');
+    setErrors({});
+  };
+
   const handleSubmitForm = async event => {
     event.preventDefault();
 
@@ -26,6 +32,9 @@ const CourseModal = ({ actionName, initialCourseAttributes, fetchCourses }) => {
       const { data } = await requestRoute;
 
       if (data.error === null) {
+        if (actionName === 'create') {
+          resetForm();
+        }
         fetchCourses();
       }
     } catch (error) {
@@ -37,7 +46,7 @@ const CourseModal = ({ actionName, initialCourseAttributes, fetchCourses }) => {
   };
 
   return (
-    <div className="course-modal">
+    <div className="course-modal ml-auto">
       <button
         type="button"
         className="btn btn-sm btn-primary"
