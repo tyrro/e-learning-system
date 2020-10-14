@@ -5,7 +5,6 @@ AllCops:
     - 'db/seeds.rb'
   UseCache: false
   TargetRubyVersion: 2.6
-  NewCops: enable
 Style/CollectionMethods:
   Description: Preferred collection methods.
   StyleGuide: https://github.com/bbatsov/ruby-style-guide#map-find-select-reduce-size
