@@ -1,3 +1,2 @@
-web: PORT=3000 rails s
-logs: tail -f log/development.log
+web: bundle exec puma -C config/puma.rb
 js: ./bin/webpack-dev-server
