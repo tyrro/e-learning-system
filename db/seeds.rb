@@ -2,7 +2,7 @@ Course.create(
   [
     {
       name: 'Welcome to Sample Course 1',
-      description: 'In Sample Course we will learn about the topic xyz',
+      description: 'In this Sample Course we will learn about the topic WWII',
       lessons_attributes: [
         {
           name: 'This Lesson is under course 1',
@@ -29,7 +29,7 @@ Course.create(
                   correct: false,
                 },
                 {
-                  name: 'Shot by the Russians                  ',
+                  name: 'Shot by the Russians',
                   correct: false,
                 },
                 {
@@ -37,7 +37,7 @@ Course.create(
                   correct: true,
                 },
                 {
-                  name: 'No one knows                  ',
+                  name: 'No one knows',
                   correct: false,
                 },
               ],
@@ -64,7 +64,7 @@ Course.create(
               ],
             },
             {
-              name: 'What was the name of the American effort to build an atomic bomb?              ',
+              name: 'What was the name of the American effort to build an atomic bomb?',
               answers_attributes: [
                 {
                   name: 'The Baltimore Project                  ',
@@ -132,7 +132,7 @@ Course.create(
                   correct: false,
                 },
                 {
-                  name: 'Shot by the Russians                  ',
+                  name: 'Shot by the Russians',
                   correct: false,
                 },
                 {
@@ -140,7 +140,7 @@ Course.create(
                   correct: true,
                 },
                 {
-                  name: 'No one knows                  ',
+                  name: 'No one knows',
                   correct: false,
                 },
               ],
@@ -167,7 +167,7 @@ Course.create(
               ],
             },
             {
-              name: 'What was the name of the American effort to build an atomic bomb?              ',
+              name: 'What was the name of the American effort to build an atomic bomb?',
               answers_attributes: [
                 {
                   name: 'The Baltimore Project                  ',
@@ -214,10 +214,10 @@ Course.create(
     },
     {
       name: 'Welcome to Sample Course 2',
-      description: 'In Sample Course we will learn about the topic xyz',
+      description: 'In this Sample Course we will learn about the topic WWII',
       lessons_attributes: [
         {
-          name: 'This Lesson is under course 2',
+          name: 'This Lesson is under course 1',
           description: 'This is a sample description',
           questions_attributes: [
             {
@@ -241,7 +241,7 @@ Course.create(
                   correct: false,
                 },
                 {
-                  name: 'Shot by the Russians                  ',
+                  name: 'Shot by the Russians',
                   correct: false,
                 },
                 {
@@ -249,7 +249,7 @@ Course.create(
                   correct: true,
                 },
                 {
-                  name: 'No one knows                  ',
+                  name: 'No one knows',
                   correct: false,
                 },
               ],
@@ -276,7 +276,7 @@ Course.create(
               ],
             },
             {
-              name: 'What was the name of the American effort to build an atomic bomb?              ',
+              name: 'What was the name of the American effort to build an atomic bomb?',
               answers_attributes: [
                 {
                   name: 'The Baltimore Project                  ',
@@ -320,7 +320,7 @@ Course.create(
           ],
         },
         {
-          name: 'This Lesson is under course 2',
+          name: 'This Lesson is under course 1',
           description: 'This is a sample description',
           questions_attributes: [
             {
@@ -344,7 +344,7 @@ Course.create(
                   correct: false,
                 },
                 {
-                  name: 'Shot by the Russians                  ',
+                  name: 'Shot by the Russians',
                   correct: false,
                 },
                 {
@@ -352,7 +352,7 @@ Course.create(
                   correct: true,
                 },
                 {
-                  name: 'No one knows                  ',
+                  name: 'No one knows',
                   correct: false,
                 },
               ],
@@ -379,7 +379,7 @@ Course.create(
               ],
             },
             {
-              name: 'What was the name of the American effort to build an atomic bomb?              ',
+              name: 'What was the name of the American effort to build an atomic bomb?',
               answers_attributes: [
                 {
                   name: 'The Baltimore Project                  ',
