@@ -82,4 +82,4 @@ production:
   <<: *default
   database: e_learning_system_production
   username: e_learning_system
-  password: <%= ENV['e_learning_system_DATABASE_PASSWORD'] %>
+  password: <%= ENV['E_LEARNING_SYSTEM_DATABASE_PASSWORD'] %>
