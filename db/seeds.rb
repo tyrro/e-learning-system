@@ -217,7 +217,7 @@ Course.create(
       description: 'In this Sample Course we will learn about the topic WWII',
       lessons_attributes: [
         {
-          name: 'This Lesson is under course 1',
+          name: 'This Lesson is under course 2',
           description: 'This is a sample description',
           questions_attributes: [
             {
@@ -320,7 +320,7 @@ Course.create(
           ],
         },
         {
-          name: 'This Lesson is under course 1',
+          name: 'This Lesson is under course 2',
           description: 'This is a sample description',
           questions_attributes: [
             {
