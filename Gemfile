@@ -29,6 +29,7 @@ gem 'rails_semantic_logger'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'clearance'
+gem 'dotenv-rails'
 gem 'i18n-js'
 gem 'kaminari'
 gem 'webpacker-react', '~> 1.0.0.beta.1'
