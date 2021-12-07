@@ -17,8 +17,7 @@ en:
     failure_when_forbidden: Please double check the URL or try submitting
       the form again.
     failure_when_not_signed_in: 'Please sign in to continue.
-      <br />
-      You can use the following credentials to sign in as well: <br />
+      You can use the following credentials to sign in as well:
       email: test@example.com, password: 12345'
     failure_when_missing_email: Email can't be blank.
   helpers:
