@@ -1,0 +1,24 @@
+version: '3.9'
+services:
+  postgres:
+    image: postgres:13.4-alpine
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+  web:
+    build: .
+    command: >
+      sh -c "
+        rm -rf tmp/pids/server.pid \
+        & ./bin/webpack-dev-server \
+        & bundle exec rails s -p 3000 -b '0.0.0.0'"
+    volumes:
+      - .:/var/www/e-learning-system
+      - /var/www/e-learning-system/node_modules
+    ports:
+      - 3000:3000
+    depends_on:
+      - postgres
+    tty: true
+    stdin_open: true
+volumes:
+  postgres-data:
