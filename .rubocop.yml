@@ -3,7 +3,7 @@ AllCops:
     - "vendor/**/*"
     - "db/schema.rb"
   UseCache: false
-  TargetRubyVersion: 2.3
+  TargetRubyVersion: 2.7
 Style/CollectionMethods:
   Description: Preferred collection methods.
   StyleGuide: https://github.com/bbatsov/ruby-style-guide#map-find-select-reduce-size
@@ -155,7 +155,7 @@ Metrics/MethodLength:
   Enabled: true
   CountComments: false
   Max: 10
-  ExcludedMethods:
+  IgnoredMethods:
     - change
     - up
     - down
@@ -173,7 +173,7 @@ Metrics/PerceivedComplexity:
 Metrics/BlockLength:
   Max: 25
   Enabled: true
-  ExcludedMethods:
+  IgnoredMethods:
     # RSpec
     - describe
     - context
