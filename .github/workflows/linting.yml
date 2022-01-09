@@ -10,7 +10,7 @@ jobs:
       - name: Setup Ruby
         uses: eregon/use-ruby-action@master #this will use by default the .ruby-version file in the repository
       - name: Install Pronto
-        run: gem install --no-document pronto pronto-rubocop pronto-flay pronto-brakeman pronto-rails_best_practices pronto-reek pronto-scss
+        run: gem install --no-document pronto pronto-rubocop pronto-flay pronto-rails_best_practices pronto-reek pronto-scss
       - name: Run Pronto
         env:
           PRONTO_GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
