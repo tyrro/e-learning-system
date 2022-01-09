@@ -26,7 +26,6 @@ module.exports = function (api) {
           },
           modules: 'commonjs',
         },
-        '@babel/preset-react',
       ],
       (isProductionEnv || isDevelopmentEnv) && [
         '@babel/preset-env',
