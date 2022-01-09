@@ -1,5 +1,5 @@
 <nav class="navbar navbar-light bg-light">
-  <%= link_to 'E-Learning', root_path, class: 'navbar-brand' %>
+  <%= link_to I18n.t('.app_name'), root_path, class: 'navbar-brand' %>
 
   <ul class="nav justify-content-end">
     <% if signed_in? %>
@@ -7,14 +7,14 @@
         <%= current_user.email %>
       </li>
       <li>
-        <%= button_to "Sign Out", sign_out_path, method: :delete, class: "btn btn-sm btn-secondary" %>
+        <%= button_to I18n.t('layouts.application.sign_out'), sign_out_path, method: :delete, class: "btn btn-sm btn-secondary" %>
       </li>
     <% else %>
       <li class="mr-2">
-          <%= button_to "Sign In", sign_in_path, method: :get, class: "btn btn-sm btn-primary" %>
+          <%= button_to I18n.t('layouts.application.sign_in'), sign_in_path, method: :get, class: "btn btn-sm btn-primary" %>
       </li>
       <li>
-        <%= button_to "Sign Up", sign_up_path, method: :get, class: "btn btn-sm btn-success" %>
+        <%= button_to I18n.t('layouts.application.sign_up'), sign_up_path, method: :get, class: "btn btn-sm btn-success" %>
       </li>
     <% end %>
   </ul>
