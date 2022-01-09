@@ -17,7 +17,7 @@ services:
       - .:/var/www/e-learning-system
       - /var/www/e-learning-system/node_modules
     ports:
-      - 5000:3000
+      - 3000:3000
     depends_on:
       - postgres
     tty: true
