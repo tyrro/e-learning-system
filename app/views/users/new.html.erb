@@ -6,9 +6,7 @@
     <%= form_for @user do |form| %>
       <%= render partial: '/users/form', object: form %>
 
-      <div class="form-group">
-        <%= form.submit %>
-      </div>
+      <button type="submit" class="btn btn-sm btn-success"><%= t(".title") %></button>
     <% end %>
   </div>
 </div>

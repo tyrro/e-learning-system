@@ -127,7 +127,7 @@ GEM
     listen (3.7.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
-    loofah (2.12.0)
+    loofah (2.13.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     mail (2.7.1)
@@ -136,12 +136,12 @@ GEM
     matrix (0.4.2)
     method_source (1.0.0)
     mini_mime (1.1.2)
-    mini_portile2 (2.6.1)
-    minitest (5.14.4)
+    mini_portile2 (2.7.1)
+    minitest (5.15.0)
     msgpack (1.4.2)
     nio4r (2.5.8)
-    nokogiri (1.12.5)
-      mini_portile2 (~> 2.6.1)
+    nokogiri (1.13.0)
+      mini_portile2 (~> 2.7.0)
       racc (~> 1.4)
     pg (1.2.3)
     public_suffix (4.0.6)
@@ -149,7 +149,7 @@ GEM
       nio4r (~> 2.0)
     racc (1.6.0)
     rack (2.2.3)
-    rack-proxy (0.7.0)
+    rack-proxy (0.7.2)
       rack
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
@@ -223,6 +223,7 @@ GEM
       rubyzip (>= 1.2.2)
     semantic_logger (4.8.2)
       concurrent-ruby (~> 1.0)
+    semantic_range (3.0.0)
     shoulda-matchers (5.0.0)
       activesupport (>= 5.2.0)
     spring (2.1.1)
@@ -236,7 +237,7 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    thor (1.1.0)
+    thor (1.2.1)
     thread_safe (0.3.6)
     tilt (2.0.10)
     turbolinks (5.2.1)
@@ -253,10 +254,11 @@ GEM
       nokogiri (~> 1.6)
       rubyzip (>= 1.3.0)
       selenium-webdriver (~> 4.0)
-    webpacker (4.3.0)
-      activesupport (>= 4.2)
+    webpacker (5.4.3)
+      activesupport (>= 5.2)
       rack-proxy (>= 0.6.1)
-      railties (>= 4.2)
+      railties (>= 5.2)
+      semantic_range (>= 2.3.0)
     webpacker-react (1.0.0.beta.1)
       webpacker
     websocket-driver (0.7.5)
@@ -264,7 +266,7 @@ GEM
     websocket-extensions (0.1.5)
     xpath (3.2.0)
       nokogiri (~> 1.8)
-    zeitwerk (2.5.1)
+    zeitwerk (2.5.3)
 
 PLATFORMS
   ruby
@@ -294,7 +296,7 @@ DEPENDENCIES
   tzinfo-data
   web-console (>= 3.3.0)
   webdrivers
-  webpacker (~> 4.0)
+  webpacker (~> 5.0)
   webpacker-react (~> 1.0.0.beta.1)
 
 RUBY VERSION

@@ -1,0 +1,9 @@
+.env
+log/*
+tmp/*
+.git
+.gitignore
+.DS_Store
+node_modules
+public/test
+Dockerfile
