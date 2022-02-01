@@ -1,3 +1,2 @@
-web: rm -rf tmp/pids/server.pid && bundle exec puma -C config/puma.rb -p 3000
+web: rm -rf tmp/pids/server.pid && bundle exec rails s -b '0.0.0.0'
 js: ./bin/webpack-dev-server
-log: tail -f log/development.log
