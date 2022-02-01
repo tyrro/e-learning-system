@@ -2,6 +2,7 @@
   "name": "e_learning_system",
   "private": true,
   "dependencies": {
+    "@babel/core": "^7.16.7",
     "@babel/preset-react": "^7.10.4",
     "@rails/webpacker": "5.4.3",
     "axios": "^0.20.0",
@@ -15,19 +16,14 @@
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-minimal-pie-chart": "^8.0.1",
-    "react-modal": "^3.11.2",
     "react-paginate": "^6.5.0",
     "react-required-if": "^1.0.3",
-    "throttle-debounce": "^2.3.0",
     "url-template": "^2.0.8",
     "webpack": "^4.46.0",
-    "webpack-cli": "^3.3.12",
     "webpacker-react": "^0.3.2"
   },
   "version": "0.1.0",
   "devDependencies": {
-    "@babel/core": "^7.16.7",
     "axios-mock-adapter": "^1.18.2",
     "babel-eslint": "^10.1.0",
     "enzyme": "^3.11.0",
