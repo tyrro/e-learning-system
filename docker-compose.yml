@@ -4,7 +4,8 @@ x-default: &default
   build: .
   volumes:
     - .:/var/www/e-learning-system
-    - /var/www/e-learning-system/node_modules
+    - bundle_install:/usr/local/bundle
+    - node_modules:/var/www/e-learning-system/node_modules
   environment:
     POSTGRES_USER: postgres
     POSTGRES_PASSWORD: password
@@ -24,9 +25,10 @@ services:
       sh -c "
         rm -rf tmp/pids/server.pid \
         & ./bin/webpack-dev-server \
-        & bundle exec rails s -p 3000 -b '0.0.0.0'"
+        & bundle exec rails s -b '0.0.0.0'"
     ports:
       - 3000:3000
+      - 3035:3035
     depends_on:
       - postgres
     tty: true
@@ -34,3 +36,5 @@ services:
 
 volumes:
   postgres-data:
+  bundle_install:
+  node_modules:
